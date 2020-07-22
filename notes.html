@@ -1,0 +1,228 @@
+<!--
+-Paragraph Tags
+    - <p> - defines a paragraph
+    - <br> - inserts a single line break
+    - <pre> defines pre-formatted text
+   
+- <b> ... </b> - bolds text
+- <strong> ... </strong> bolds text and signifies that this text is fundamentally/semantically important to the surrounding text
+
+-<i>
+- <em> (italicized text that signifies importance relative to surrounding text)
+
+-Anchor Tags
+    - href - specifies a destination address
+    - ex.) <a href="example.com" target = "_blank">Text Here</a>
+
+-Lists
+    - three ways to specify lists in HTML: ordered lists, unordered lists, and descriptive lists
+    - <ol> creates an ordered list
+        - <li> represents a list item in a list
+    
+-Tables
+    - <table> creates a table
+        - <tr> represents a row cell
+        - <th> represents a header cell
+        - <td> represents a content cell
+
+- Class and IDs
+    - <div> - separates the document into parts/assigns class/id to an element
+    - as a general rule, do not assign the same ID to two elements in the same document
+    - IDs must begin with a letter
+    - class values do NOT have to be unique in the same document
+
+- Data Attribute
+        - data- is an identifier that allows the developer to store data in HTML
+    
+- Javascript
+        - standard practice is to place JS <script> tags just before the </body> tag
+            - i.e. <script src="path/to,js"></script>
+
+- CSS
+        - standard practice to place CSS <link> tags inside the <head> tag at the top of your HTML
+            - ex.) <link rel="stylesheet" href="path/to.css">
+        - internal stylesheet example:
+            <head>
+                <style type="text/css">
+                    body {
+                        background-color: **colorname**;
+                    }
+                </style>
+            </head>
+        
+- Images
+        - <img> takes in a src(web url, image itself) and an alt(background information)
+        - having an empty alt atribute(alt="") vs no alt attribute:
+            - an empty alt attribute signifies that the image is not a key part of the content 
+            - including no alt attribute signifies that the image is a key part of the content and that there is no textual equivalent available
+        - ex.)
+            <img src-"anonymous.png" alt="" /> An anonymous user wrote:
+            <blockquote> somethingsomething. </blockquote>
+            <a href="https://google.com"><img src="edit.png" alt="Edit" /></a> 
+
+- Input
+        - syntax: <input type="whatevertypeyouwant">
+        - for text, the default size is 20 but you can adjust that by assigning a new value to size after assigning a value to type
+        - other types: checkbox(square), radio(circle)
+        - validation is done through specially crafted HTTP requests(some input types are automatically validated like email, url, tel, date, etc.)
+            - validation syntax: <input required>
+            - in place of the required attribute could be the following attributes:
+                - minlength, maxlength, type, size, name, pattern, title(appears as guidance text)
+            -if type=file, then you can append an "accept" attribute that accepts any number of file types(image, rar, application/zip)
+        - passwords have the following syntax: <input type="password" name="password" placeholder="Password">
+        - files have the following syntax:<input type="file" name="fileSubmission" id="fileSubmission">
+            - if you want the system to accept multiple files, append the "multiple" attribute to the end of your file statement
+            - if you want to specify certain file types that the system can accept, use the "accept" attribute instead of the "id" attribute
+        - buttons have the following syntax: <input type="button"> Button Text</button>
+            - "onclick" attribute leads to a pop up event
+            - secondary attributes are: "name", "type", etc.
+                - possible values for type are: "submit", "reset", "button", "menu"
+        - for hidden input types, the value will be sent to the server when the form is submitted nonetheless
+        - "tel" values for the type attribute represetn a one-line plain-text edit control for entering a telephone number in their "value" attribute
+        - emails have the following syntax: 
+            <form> 
+                <label>E-mail: <label>
+                <input type="email" name="email">
+                </form>
+        - "number" type allows for setting the element's value to a string representing a number
+        - "image" type allows for a src, alt, height(pxls), and width(pxls) attribute to specify the input image's details
+    
+- Forms
+        - used to encapsulate input and submission elements for the server/handler of the data
+        - "action" attribute sends the form submitted to a script that manipulates the information
+                - syntax: <form action="action.php">
+        - "method" attribute 
+                    - the GET method appends input data to a URL 
+                    - the POST method uses the input data by submitting it to a script
+
+        - "target" attribute specifies a name/keyword that indicates where to display the response that is received after submitting a form
+                    - syntax:<form target="_blank">
+                    - types of target values"
+                        - _blank(response is displayed in a new window or tab), _self(same frame), _parent(parent frame), _top(full body of the window). framename
+        - <fieldset> is used to group together input fields
+                - <legend> is used as a border for an input field
+                - <br> represents a line break
+
+- Div Element
+        - <div> is used to separate out tags/elements from each other
+            - nesting takes place when placing a <div class="outer-div"> outside of <div class="inner-div"> statements
+            - be wary of excessive <div> use since more <div> use leads to a decrease in the content to tag raio which increases page load and thus results in a worse ranking in search engine algorithms
+            - as a general rule, do not exceed 6 <div> elements in a nest
+    
+- Sectioning Elements
+        - <footer> is generally used to make a list of links to other parts of the site(i.e. FAQ)
+        - <article> contains content like articles, blog posts, user comments or an interactive widget 
+            - as a general rule, when the main content of the page is simply one group of elements, you can omit <article> in favour of the <main> element
+        - <main> element contains the central content for your web page, should never be used more than once on a single page, and must not be included as a descendant of an article/aside/foot/header/nav element
+        - <header> represents introductory content for its nearest ancestor sectioning content
+        - <section> represents a generic section to thematically group content
+            - every <section> element should have a theme(i.e. <h_n> element)
+        - <nav> bars are used to encase navigation links for your webpage
+
+- Label Elements
+        - <label> used to reference a form action element
+            - can be used as a wrapper or reference
+            - don't use more than one control element for a label
+
+- Methods
+        - GET is used to request data from a specified resource
+        - POST is used to send data to a server to create/update a resource
+        - PUT functions the same as the POST method with the key difference being that PUT requests are idempotent
+        - HEAD functions the same as GET without sending the requested information back to the user
+
+- Void Elements
+        - only require an opening tag and do not contain any elements
+        - examples of void elements:
+            - area, base, br, col, hr, img, input, link, meta, param
+        
+- Media Elements
+        - ex.)
+            <audio controls>
+                <source src="file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+             </audio>
+        - another example(video):
+             <video src="videofile.webm" autoplay poster="posterimage.jpg">
+                 Sorry, your browser doesn't support embedded videos,
+                 but don't worry, you can<a href="videofile.webm">download it</a>
+                 and watch it with your favorite video player!
+             </video>
+             
+- Progress Elements
+        - <progress> ex.)
+                <progress value="22" max="100"></progress>
+        - progress bars can be styled with the progress[value] selector
+        - note that these style designs are dependent upon the browser
+        - there is a workaround for browsers that do not support the progress element; it is called the HTML fallback
+
+- Select Menu
+        - ex.)
+            <select name="">
+                <option value="1">One</option>
+                ...
+            </select>
+        - you can have the user be able to select multiple options by appending the "multiple" attribute at the end of a select clause:
+            <select name="" multiple></select>
+        -<option> elements are what the user can select in a selection menu: 
+            <option>Some Option</option>
+        - most common way to write an option element is the following:
+            <option> value="option1">Some Option</option>
+        
+        - you can have an option(s) be selected by default by appending the "selection" attribute before a closing tag
+        - <optgroup> allows you to group the list of options. It takes a label attribute to identify the title of the group. Disabling an option group will disable all options within that group
+        - <datalist> specifies a lsit of pre-defined options for an <input> element
+        
+- Embed
+        - <embed> tag provides an integration point for an external application or interactive content
+
+- IFrames
+        - another HTML page contained within a small frame on your current HTML page
+        - sandboxing can be used to create a layer of defense against an untrusted web page
+
+- Content Languages
+        - <html lang="en"> declares the primary langauge of the document 
+        - "lang" attribute gets inherited within nests
+
+- SVG
+        - <svg> is a container for SVG graphics
+        - <img> elements cannot be styled with CSS or manipulated with JS
+
+- Canvas
+        - allows you to draw graphics in 300x150 px size
+- Meta Information
+        - keywords/description values for the "name" attribute relate to how search engines will index your web page
+        - as a rule of thumb, avoid using more than 20-25 words in the "content" attribute for keywords
+        - <meta charset="UTF-8"> is the most common character encoding for browsers to recognize
+        - links from social media sites have their own metadata structure
+        - for mobile-optimized sites, the meta information is structured through the viewport value for "name":
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            - the above clause specifies that the browser will render the width of the page at the width of its own screen. The "initial-scale=1" means that there is no zoom for this page
+                - to allow the device to zoom, the "user-scalable" attribute must have a 'yes' value
+        - mobile platforms like iOS automatically recognize phone numbers and turn them into tel:links. You can disable this by the following:
+            - <meta name="format-detection" content="telephone=no">
+        - to set up automatic redirects do the following:
+            - <meta http-equiv="refresh" content="5;url=https://www.example.com/" />
+                - this statement will wait 5 seconds to redirect the client to the "example.com" webpage
+        - you can set up your web app/site to have an application shortcut icon by the following(depending on whether it is on android chrom or iOS):
+            - <meta name="mobile-web-app-capable" content="yes">
+            - <meta name="apple-mobile-web-app-capable" content="yes">
+
+        - side note: <code> is used to reference computer code. This can be used in combination with a <pre> tag in case of formatting. Escape characters may prove useful(i.e. < with &lt;)
+        
+- Marking-up Quotes:
+        - <q> used for a quote that is part of a sentence. ** Do not use quotation mark symbols **
+        - "cite" attribute can be used when referencing a URL:
+            -<p> She wrote <q cite="http://example.com/blog/hello-world">The answer is 42.</q>
+
+- Global Attributes
+        - the "contenteditable" attribute sets whether the content of an element can be edited
+        - side note: <span> tag is used like a <div> element except for inline statements
+        - 
+
+
+
+
+
+-->
+
+ 
